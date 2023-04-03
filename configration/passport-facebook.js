@@ -4,9 +4,9 @@ const User = require('../models/user');
 const crypto = require('crypto');
 
 passport.use(new FacebookStrategy({
-    clientID: process.env.FACEBOOK_APP_ID ||'5965273253569215',
-    clientSecret:process.env.FACEBOOK_APP_SECRET ||'445bf5120d5430c40a9287ad2a042570',
-    callbackURL: "http://localhost:9000/user/auth/facebook/callback"
+    clientID: process.env.FACEBOOK_APP_ID ,
+    clientSecret:process.env.FACEBOOK_APP_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL
   },
   async function(accessToken, refreshToken, profile, cb) {
     try{
