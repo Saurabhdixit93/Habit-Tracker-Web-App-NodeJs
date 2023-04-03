@@ -1,0 +1,21 @@
+/* Add some spacing to the top and bottom of the footer */
+.footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Make the text smaller and center it in the columns */
+  .column p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  /* Add some space between the links and align them to the right */
+  .column.has-text-right a {
+    margin-left: 1rem;
+  }
+  
+  /* Add a hover effect to the links */
+  a:hover {
+    text-decoration: underline;
+  }

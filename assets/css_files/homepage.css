@@ -1,0 +1,29 @@
+/* Center the title and subtitle in the hero section */
+.hero-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Add some padding to the top and bottom of the hero section */
+  .hero {
+    padding-top: 1rem;
+  }
+  
+  /* Add some spacing between the sections */
+  .section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Make the benefits list bold and add some space between the items */
+  ul {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }

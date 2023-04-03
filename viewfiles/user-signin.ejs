@@ -1,0 +1,91 @@
+<!-- Login View -->
+<style>
+  .line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: black;
+  }
+  
+  .or {
+    margin: 0 10px;
+  }
+</style>
+<link rel="stylesheet" href="/css/loginpage.css">
+<body>
+  <!-- Alert messages -->
+  <% if (message) { %>
+    <div id="alert-message" class="alert alert-<%= message.type %>">
+      <%= message.text %>
+    </div>
+  <% } %>
+  <!-- Alert messages end -->
+  <section class="section" style="min-height: 90vh;" >
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="card" style="margin-top: -20px;">
+            <div class="card-content">
+              <h1 class="title has-text-centered">Login</h1>
+              <form id="login-form" method="post" action="/user/login-user-session">
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control has-icons-left">
+                    <input class="input" type="email" name="email" placeholder="Enter your email" name="email" id="email" required>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <p class="help is-danger" id="email-error"></p>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Password</label>
+                  <div class="control has-icons-left">
+                    <input class="input" type="password" name="password" placeholder="Enter your password" name="password" id="password" required>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                    <p class="help is-danger" id="password-error"></p>
+                  </div>
+                </div>
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button is-link" type="submit">Login</button>
+                  </div>
+                  <div class="control">
+                    <a href="/user/auth/forgot-password">Forgot password ?</a>
+                  </div>
+                </div>
+                <p>New User ? <a href="/user/sign-up">Sign Up</a></p>
+                <div class="line-container">
+                  <div class="line"></div>
+                  <div class="or">Or</div>
+                  <div class="line"></div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <a href="/users/auth/facebook-login" style="display: none;" id="facebook_login"></a>
+                    <button class="button is-link is-outlined is-fullwidth" type="button" id="login-facebook" onclick="document.getElementById('facebook_login').click()" >
+                      <span class="icon">
+                        <i class="fab fa-facebook"></i>
+                      </span>
+                      <span>Login with Facebook</span>
+                    </button>
+                  </div>
+                </div>
+               </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="/script_files/loginvalidation.js"></script>

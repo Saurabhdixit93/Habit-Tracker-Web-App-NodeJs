@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+     <!-- bulma css -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+     <!-- Fonts CDN -->
+     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
+     <!-- Icons CDN -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/761d42c757.js" crossorigin="anonymous"></script>
+     <!-- noty libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    
+    <%- style %>
+    <style>
+      body {
+        background-image: url('/images/signup.jpg');
+        filter: blur(0.2px) brightness(100%);
+        min-height: 100vh;
+      }
+      a{
+        text-decoration: none !important;
+      }
+        /* Define the styles for the scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px; /* Set the width of the scrollbar */
+      }
+
+      /* Define the style of the thumb (the draggable part of the scrollbar) */
+      ::-webkit-scrollbar-thumb {
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+      }
+
+      /* Define the style of the track (the non-draggable part of the scrollbar) */
+      ::-webkit-scrollbar-track {
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+      }
+      /* Alert message */
+        
+      .alert {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+      }
+
+      .alert-success {
+        color: #00ff2f;
+        background-color: #000000;
+        border-color: #00ff3c;
+      }
+
+      .alert-danger {
+        color: #ff0000;
+        background-color: #000000;
+        border-color: #ffffff;
+      }
+    </style>
+</head>
+<body>
+    <!-- header part -->
+    <%- include('_header'); %>
+
+    <!-- main body -->
+    <%- body %>
+
+    <!-- footer part -->
+    <%- include('_footer'); %>
+
+     <!-- web Scripts with notification messages-->
+     <script>
+        // For Success Messages
+        <%if(flash.success && flash.success.length > 0){%>
+          new Noty({
+            theme:'nest',
+            text: '<%= flash.success %> ',
+            type:'success',
+            layout:'topLeft',
+            timeout:1500
+          }).show();
+        <%}%>
+        // For Error Messages
+        <%if(flash.error && flash.error.length > 0){%>
+          new Noty({
+            theme:'relax',
+            text: '<%= flash.error %> ',
+            type:'error',
+            layout:'topRight',
+            timeout:1500
+          }).show();
+        <%}%>
+    </script>
+    <!-- For Scripts -->
+    <%- script %>
+    
+    <script>
+      // Hide alert message after 5 seconds
+      setTimeout(function() {
+        document.getElementById('alert-message').style.display = 'none';
+      }, 5000);
+    </script>
+</body>
+</html>

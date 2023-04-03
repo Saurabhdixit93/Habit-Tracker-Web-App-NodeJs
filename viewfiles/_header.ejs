@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/css_files/header.css">
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+       
+        <a class="navbar-item" href="/">
+            
+            <img src="https://img.icons8.com/external-glyph-silhouettes-icons-papa-vector/100/null/external-Sleep-Hygiene-healthy-habits-glyph-silhouettes-icons-papa-vector.png" style="max-height: 5rem;">
+        </a>
+       <% if(locals.user){%>
+        <a class="navbar-item" href="/user/new/dashboard-page">
+          Dashboard
+        </a>
+        <%}%>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if(!locals.user){%>
+              <a class="button is-primary" href="/user/sign-up">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light" href="/user/log-in">
+                Log in
+              </a>
+              <%}%>
+              <% if(locals.user){%>
+                <small>Welcome,</small>
+              <a class="is-light" style="margin-left:10px;">
+               <%= user.name %>
+              </a>
+              <a style="margin-left:10px;" class="button is-primary" href="/user/sign-out">
+                <strong>Logout</strong>
+              </a>
+              <%}%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+
+<script>
+    // Toggle the navbar burger
+    document.querySelector('.navbar-burger').addEventListener('click', function() {
+      document.querySelector('.navbar-menu').classList.toggle('is-active');
+    });
+</script>

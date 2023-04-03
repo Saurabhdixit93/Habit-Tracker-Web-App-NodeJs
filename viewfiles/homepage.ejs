@@ -1,0 +1,42 @@
+<title><%= title %></title>
+<link rel="stylesheet" href="/css_files/homepage.css">
+<!-- Alert messages -->
+   <% if (message) { %>
+        <div id="alert-message" class="alert alert-<%= message.type %>">
+        <%= message.text %>
+        </div>
+   <% } %>
+   <style>
+    section{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+   </style>
+  <!-- Alert messages end -->
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Habit Maker</h1>
+        <h2 class="subtitle">Build Good Habits and Break Bad Ones</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section " style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+    <div class="container " style="color: rgb(0, 0, 0);">
+      <h3 class="title is-3">Welcome to Habit Maker!</h3>
+      <p>Our platform is designed to help you build good habits and break bad ones. By setting daily or weekly goals and tracking your progress, you can create positive changes in your life and reach your goals faster.</p>
+
+      <p style="margin-bottom: 1rem;">Whether you want to exercise more, eat healthier, or improve your productivity, Habit Maker is here to support you every step of the way. Our easy-to-use interface and customizable features make it simple to create a habit that works for you.</p>
+
+      <h4 class="title is-4">Here are just a few benefits of using Habit Maker:</h4>
+      <ul>
+        <li>Accountability: By tracking your progress, you'll be more likely to stick to your habits and achieve your goals.</li>
+        <li>Motivation: Seeing your progress over time can be a powerful motivator to keep going and push yourself to do better.</li>
+        <li>Flexibility: Habit Maker is fully customizable, so you can create a habit that works for your unique lifestyle and schedule.</li>
+      </ul>
+      <% if(!locals.user){%>
+      <p>So why wait? <a href="/user/sign-up" style="color: rgb(17, 0, 255);">Sign up for Habit Maker</a> today and start building the habits that will help you achieve your goals and live your best life.</p>
+      <%}%>
+    </div>
+  </section>
+  

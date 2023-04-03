@@ -1,0 +1,155 @@
+<title><%= title %></title>
+<!-- link css -->
+<link rel="stylesheet" href="/css_files/dashboardmain.css">
+<style>
+    /* Style the buttons inside the toggle-daily-weekly div */
+    #toggle-daily-weekly {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 1.3rem;
+    }
+    #toggle-daily-weekly button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Add hover and active effect on buttons */
+    #toggle-daily-weekly button:hover,
+    #toggle-daily-weekly button.active {
+      background-color: #ff3333;
+    }
+    
+    /* Style the habit input field */
+    #habit-form .input-group {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    #habit-form input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid #ff4d4d;
+      font-size: 18px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      transition: border-bottom 0.3s ease-in-out;
+    }
+    
+    /* Add focus effect on the habit input field */
+    #habit-form input[type="text"]:focus {
+      border-bottom: 1px solid #ff3333;
+    }
+    
+    /* Style the add button */
+    #habit-form button[type="submit"] {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      margin-top: -15px;
+      align-items: center;
+    }
+    
+    #habit-form button[type="submit"] i {
+      margin-right: 5px;
+    }
+    
+    /* Add hover effect on the add button */
+    #habit-form button[type="submit"]:hover {
+      background-color: #ff3333;
+    }
+    
+    /* Add responsive design */
+    @media (max-width: 767px) {
+      #toggle-daily-weekly {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      #toggle-daily-weekly button {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+    </style>
+<!-- main  -->
+<main>
+    <!-- Alert messages -->
+  <% if (message) { %>
+    <div id="alert-message" class="alert alert-<%= message.type %>">
+      <%= message.text %>
+    </div>
+  <% } %>
+    <h1>Why Procrastinate? Let's add a new habit today!</h1>
+
+    <div id="toggle-daily-weekly">
+        <button type="button" class="btn btn-danger active" onclick="document.getElementById('dailygo').click();"><i class="fas fa-sun"><a href="/user/new/daily" style="display: none;" id="dailygo"></a></i>Daily</button>
+        <button type="button" class="btn btn-danger" onclick="document.getElementById('weeklygo').click();"><i class="fas fa-calendar-week"> <a href="/user/new/dashboard-page" tyle="display: none;" id="weeklygo"></a></i>Weekly</button>
+    </div>
+
+    <form action="/habit/create" method="post" id="habit-form">
+    <div class="input-group">
+        <input type="text" name="habit" placeholder="Create a new habit...">
+        <div class="input-group-append">
+        <button type="submit"><i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+    </form>
+
+    <div id="habits-container">
+        <% if(habits.length===0){%>
+            <div style="text-align: center; font-family: Verdana;font-size: large;">No Habit Foud, Add New Habit Now </div>
+       <%}%>
+        <% let i=0; %>
+        <% for(habit of habits){ %>
+            <div class="habit">
+                <div class="habit-title"><i class="fas fa-smile fa-lg"></i> <span><%= habit.content %></span></div>
+                <div class="weekdays-container center">
+                    <div class="today">
+                        <div class="day-name"></div>
+                        <div class="date"></div>
+                        <% if(status[i][dayNumber] == 'unmarked'){ %>
+                            <div class="habit-status">
+                                <button class="habit-finished"><a href="/habit/done/?habitId=<%= habit._id %>&date=<%= week[dayNumber] %>"><i class="fas fa-check fa-xs"></i></a></button>
+                                <button class="habit-unfinished"><a href="/habit/undone/?habitId=<%= habit._id %>&date=<%= week[dayNumber] %>"><i class="fas fa-times fa-xs"></i></a></button>
+                            </div>
+                        <% } else { %>
+                            <div class="habit-status">
+                                <span class="<%= status[i][dayNumber] %> font"><%= status[i][dayNumber] %></span>
+                            </div>
+                        <% } %> 
+                    </div>
+                </div>
+                <div class="habit-options">
+                    <% if(habit.favourite == false){ %>
+                        <a href="/habit/favourite/add/?habitId=<%= habit._id %>"><i class="far fa-heart fa-md"></i></a>
+                    <% }else{ %>
+                        <a href="/habit/favourite/remove/?habitId=<%= habit._id %>"><i class="fas fa-heart" style="color: red;"></i></a>
+                    <% } %>
+                    <a href="/habit/delete/?habitId=<%= habit._id %>"><i class="far fa-trash-alt fa-md"></i></a>
+                </div>
+            </div>
+        <% i = i + 1; %>
+        <% } %>
+    </div>
+</main>
+
+<script type="text/javascript" src="/script_files/daily.js"></script>

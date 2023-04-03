@@ -1,0 +1,68 @@
+body {
+    background-color: #f5f5f5;
+  }
+  
+   .box {
+  margin-top: 3rem;
+  }
+  
+  .title {
+  color: #ffffff;
+  }
+  
+  .help.is-danger {
+  display: none;
+  color: #ff3860;
+  }
+  
+  .show-password {
+  cursor: pointer;
+  }
+  
+  .show-password:hover {
+  color: #3273dc;
+  }
+  button[type="submit"] {
+  margin-right: 1rem;
+  }
+  
+  button[type="submit"]:hover {
+  background-color: #7c37ad;
+  }
+  
+  button#forgot-password {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #3273dc;
+  text-decoration: underline;
+  cursor: pointer;
+  }
+  
+  button#forgot-password:hover {
+  color: #7c37ad;
+  }
+  button#login-facebook {
+  border-radius: 2rem;
+  }
+  
+  button#login-facebook:hover {
+  background-color: #3b5998;
+  }
+  
+.line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: black;
+  }
+  
+  .or {
+    margin: 0 10px;
+  }

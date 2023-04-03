@@ -1,0 +1,47 @@
+.box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .help {
+    display: none;
+  }
+  
+  .is-visible {
+    display: block;
+  }
+  
+  .button {
+    margin-top: 30px;
+  }
+  
+  .icon.is-right:hover {
+    cursor: pointer;
+  }
+ .show-password{
+    margin-left: 10px;
+    margin-bottom: -10px;
+}
+
+.line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: black;
+  }
+  
+  .or {
+    margin: 0 10px;
+  }
