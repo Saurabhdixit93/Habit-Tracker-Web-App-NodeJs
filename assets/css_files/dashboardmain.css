@@ -195,32 +195,12 @@ main h1{
     display: none;
 }
 
-footer{
-	color: black;
-	font-size: 1.2rem;
-	text-transform: capitalize;
-	font-weight: 500;
-	font-family: monospace;
-	text-align: center;
-	margin-top: 0.5rem;
-}
-
-
 /* Media Queries */
 
 @media screen and (max-width: 600px){
 
-	header{
-		height: 10%;
-	}
-	#title{
-		width: 30%;
-	}
-	#user{
-		width: 40%;
-	}
 	html{
-		font-size: 9px;
+		font-size: 15px;
 	}
 	main{
 		width: 95%;
@@ -246,6 +226,6 @@ footer{
 		width: 100%;
 	}
 	footer{
-		margin-top: 30px;
+		margin-top: 20px;
 	}
 }
