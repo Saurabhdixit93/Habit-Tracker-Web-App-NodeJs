@@ -57,7 +57,7 @@ For any issues related to the project, raise an ISSUE in the respective Reposito
    -  passport
    -  passport-jwt
    -  passport-local
-   -  passport-facebook
+   -  passport-google
 
 -  Framework: ExpressJS, Bulma Css
 -  Database: MongoDB
